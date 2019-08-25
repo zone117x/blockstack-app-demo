@@ -1,5 +1,11 @@
 import * as blockstack from 'blockstack';
 
+function toAbsoluteURL(url) {
+  const a = document.createElement('a');
+  a.setAttribute('href', url);
+  return a.cloneNode(false).href;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
   // TODO: toasts for upload and delete events
@@ -9,11 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('signin-button').addEventListener('click', event => {
     event.preventDefault();
-    userSession.redirectToSignIn();
+    const redirectUrl = location.origin + location.pathname;
+    const manifestUrl = toAbsoluteURL('manifest.json');
+    userSession.redirectToSignIn(redirectUrl, manifestUrl);
   });
   document.getElementById('signout-button').addEventListener('click', event => {
     event.preventDefault();
-    userSession.signUserOut(window.location.href);
+    userSession.signUserOut(location.origin + location.pathname);
   });
 
   // Setup file upload via `<input type="file">` element

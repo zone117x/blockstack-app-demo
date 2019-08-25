@@ -3,8 +3,8 @@
   "start_url": "localhost:9000",
   "description": "A simple demo of Blockstack Auth",
   "icons": [{
-    "src": "favicon.ico",
+    "src": "https://zone117x.github.io/blockstack-app-demo/dist/favicon.ico",
     "sizes": "192x192",
-    "type": "image/png"
+    "type": "image/x-icon"
   }]
 }
