@@ -213,7 +213,9 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#error-modal').modal('show');
   }
 
-  // TODO: remove debug code
+  // Globally expose some objects useful for debugging in the dev console
   window.displayError = displayErrorModal;
+  window.blockstack = blockstack;
+  window.userSession = userSession;
 
 });
